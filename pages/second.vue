@@ -19,4 +19,5 @@
 <style scoped lang="sass">
   .red
     color: red
+    box-sizing: border-box
 </style>

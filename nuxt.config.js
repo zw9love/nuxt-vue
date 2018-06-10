@@ -42,7 +42,7 @@ module.exports = {
   },
   // 样式
   css: [
-    {src: '~assets/main.css'}
+    {src: '~assets/css/main.css'}
   ],
   transition: 'page',
   cache: false,

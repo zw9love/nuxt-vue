@@ -1,6 +1,9 @@
 <template>
   <section class="container">
     <div>
+      <!-- <img src="../assets/img/demo.jpg" style="width: 100%" alt=""> -->
+    </div>
+    <div>
       <app-logo/>
       <h1 class="title">
         nuxt-vue
@@ -94,6 +97,7 @@
   .container {
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;

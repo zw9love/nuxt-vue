@@ -18,4 +18,5 @@
 <style scoped lang="stylus">
   .skyblue
     color skyblue
+    box-sizing border-box
 </style>
