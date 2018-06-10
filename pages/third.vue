@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 v-for="(item, index) in mainData" :key="index">third页面</h1>
+    <h1 v-for="(item, index) in mainData" :key="index" class="skyblue">third页面</h1>
   </div>
 </template>
 
@@ -9,12 +9,13 @@
     name: "third",
     data(){
       return {
-        mainData: [1, 2, 3, 4, 1]
+        mainData: [1, 2, 3, 4]
       }
     }
   }
 </script>
 
-<!--<style scoped lang="stylus" rel="stylesheet/stylus">-->
-
-<!--</style>-->
+<style scoped lang="stylus">
+  .skyblue
+    color skyblue
+</style>

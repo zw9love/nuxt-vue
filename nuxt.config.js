@@ -17,6 +17,7 @@ module.exports = {
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
+  // 类似vue-resource
   modules: ['@nuxtjs/axios'],
   axios: {
     prefix: '/api/',
