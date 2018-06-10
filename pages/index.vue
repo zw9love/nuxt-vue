@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <!-- <img src="../assets/img/demo.jpg" style="width: 100%" alt=""> -->
+      <img src="../assets/img/demo.jpg" style="width: 100px" alt="">
     </div>
     <div>
       <app-logo/>
@@ -83,6 +83,7 @@
     //   })
     },
     created() {
+      // console.log(process)
       // console.log('重新进入生命周期created钩子。')
     },
     methods: {

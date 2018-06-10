@@ -11,7 +11,8 @@ Vue.use(Vuex)
 
 const store = () => new Vuex.Store({
   state: {
-    counter: 0
+    counter: 100,
+    token: 'a1234567890'
   },
   mutations: {
     increment (state) {
