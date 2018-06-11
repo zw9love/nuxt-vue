@@ -4,6 +4,7 @@
       <img src="../assets/img/demo.jpg" style="width: 100px" alt="">
       <nuxt-child/>
       <nuxt-link to="/child">去child子组件</nuxt-link>
+      <nuxt-link to="/100100100">去_id子组件</nuxt-link>
     </div>
     <div>
       <app-logo/>
