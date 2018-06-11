@@ -2,6 +2,8 @@
   <section class="container">
     <div>
       <img src="../assets/img/demo.jpg" style="width: 100px" alt="">
+      <nuxt-child/>
+      <nuxt-link to="/child">去child子组件</nuxt-link>
     </div>
     <div>
       <app-logo/>
@@ -12,15 +14,15 @@
         Nuxt.js project
       </h2>
       <div class="links">
-        <a 
-          target="_blank" 
+        <a
+          target="_blank"
           href="https://nuxtjs.org/"
           class="button--green"
         >
           Documentation
         </a>
-        <a 
-          target="_blank" 
+        <a
+          target="_blank"
           href="https://github.com/nuxt/nuxt.js"
           class="button--grey"
         >
@@ -61,6 +63,12 @@
         msg: ''
       }
     },
+    // 检验router的方法
+    validate(router) {
+      console.log(router)
+      return true // 如果参数有效
+      // return false // 参数无效，Nuxt.js 停止渲染当前页面并显示错误页面
+    },
     // 新型ajax
     async asyncData({app}) {
       let url = `/test.php`
@@ -83,6 +91,7 @@
     //   })
     },
     created() {
+      // console.log(window)
       // console.log(process)
       // console.log('重新进入生命周期created钩子。')
     },

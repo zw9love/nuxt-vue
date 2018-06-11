@@ -24,9 +24,6 @@ module.exports = {
   ],
   axios: {
     prefix: '/api/',
-    proxyHeaders: {
-      token: 'debug111'
-    },
     proxy: true // Can be also an object with default options
   },
   proxy: {
@@ -54,12 +51,13 @@ module.exports = {
   /**
    * 开发环境
    */
-  dev: process.env.NODE_ENV,
+  // dev: process.env.NODE_ENV,
   /**
    * 环境变量
    */
   env: {
     NODE_ENV: process.env.NODE_ENV,
+    TEST_ENV: 'nuxt-test'
   },
   /*
   ** Build configuration
@@ -79,5 +77,8 @@ module.exports = {
       }
     }
   },
-  // router
+  // 路由
+  router: {
+    middleware: ['auth']
+  }
 }

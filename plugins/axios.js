@@ -7,6 +7,7 @@ export default function (res) {
         // console.log(process.env) // 为空的map {}
         // console.log(process.env.NODE_ENV)
         // console.log(window)
+        // console.log(111)
         let NODE_ENV = process.env.NODE_ENV
         if(NODE_ENV === 'dev'){
             config.headers.token = devToken
