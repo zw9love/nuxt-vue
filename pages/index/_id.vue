@@ -6,7 +6,7 @@
 
 <script>
     export default {
-      name: "_id",
+      // name: "_id",
       asyncData({ params, env, error }) {
         console.log(params)
         return {name: params.id}
@@ -15,5 +15,5 @@
 </script>
 
 <style scoped lang="stylus">
-
+  
 </style>
