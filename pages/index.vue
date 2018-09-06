@@ -7,51 +7,58 @@
       <nuxt-link to="/100100100">去_id子组件</nuxt-link>
     </div>
     <div>
-      <app-logo/>
-      <h1 class="title">
-        nuxt-vue
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          target="_blank"
-          href="https://nuxtjs.org/"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          target="_blank"
-          href="https://github.com/nuxt/nuxt.js"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+      <!--<app-logo/>-->
+      <!--<h1 class="title">-->
+        <!--nuxt-vue-->
+      <!--</h1>-->
+      <!--<h2 class="subtitle">-->
+        <!--Nuxt.js project-->
+      <!--</h2>-->
+      <!--<div class="links">-->
+        <!--<a-->
+          <!--target="_blank"-->
+          <!--href="https://nuxtjs.org/"-->
+          <!--class="button&#45;&#45;green"-->
+        <!--&gt;-->
+          <!--Documentation-->
+        <!--</a>-->
+        <!--<a-->
+          <!--target="_blank"-->
+          <!--href="https://github.com/nuxt/nuxt.js"-->
+          <!--class="button&#45;&#45;grey"-->
+        <!--&gt;-->
+          <!--GitHub-->
+        <!--</a>-->
 
-        <nuxt-link v-for="(item, index) in mainData" :key="index" :class="item.className" :to="item.href">
-          {{item.name}}
-        </nuxt-link>
+        <!--<nuxt-link v-for="(item, index) in mainData" :key="index" :class="item.className" :to="item.href">-->
+          <!--{{item.name}}-->
+        <!--</nuxt-link>-->
 
-      </div>
-      <div style="margin-top: 10px;">
-        <button class="button--grey" @click="remove">消除上面最后一个按钮</button>
-        <button class="button--grey" @click="$store.commit('increment')">{{ $store.state.counter }}</button>
-      </div>
+      <!--</div>-->
+      <!--<div style="margin-top: 10px;">-->
+        <!--&lt;!&ndash;<mip>111222333</mip>&ndash;&gt;-->
+        <!--<button class="button&#45;&#45;grey" @click="remove">消除上面最后一个按钮</button>-->
+        <!--<button class="button&#45;&#45;grey" @click="$store.commit('increment')">{{ $store.state.counter }}</button>-->
+      <!--</div>-->
       <div style="margin-top: 10px;">
         <h3>{{msg}}</h3>
       </div>
     </div>
   </section>
 </template>
-
 <script>
   import AppLogo from '~/components/AppLogo.vue'
-  // import axios from 'axios'
   export default {
+    head: {
+      script: [
+        // { src: 'http://api.map.baidu.com/api?v=2.0&ak=L2fFIBoizTO5nxe7ypgsV3pHGmYw6tqx' }
+      ],
+      link: [
+        // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto' }
+      ]
+    },
     components: {
-      AppLogo
+      AppLogo,
     },
     data() {
       return {
@@ -61,12 +68,12 @@
           {href: '/third', target: '_self', className: 'button--grey', name: 'third'},
           {href: '/four', target: '_self', className: 'button--grey', name: 'four'},
         ],
-        msg: ''
+        // msg: '',
       }
     },
     // 检验router的方法
     validate(router) {
-      console.log(router)
+      // console.log(router)
       return true // 如果参数有效
       // return false // 参数无效，Nuxt.js 停止渲染当前页面并显示错误页面
     },
@@ -79,6 +86,7 @@
         // headers: {'content-type': 'application/json', token: 'debug' }
       }
       let {data} = await app.$axios(option)
+      console.log(app.$axios)
       return {msg: JSON.stringify(data)}
       // let {data} = await app.$axios.get(url)
       // return {msg: JSON.stringify(data)}
@@ -92,19 +100,27 @@
     //   })
     },
     created() {
+      console.log('created')
       // console.log(window)
       // console.log(process)
       // console.log('重新进入生命周期created钩子。')
     },
+    mounted(){
+
+    },
     methods: {
       remove() {
         this.mainData.pop()
+      },
+      alert() {
+        this.$vux.alert.show('This is a Alert example.')
       }
     }
   }
 </script>
 
 <style>
+  body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
   .container {
     min-height: 100vh;
     display: flex;
@@ -131,7 +147,61 @@
     padding-bottom: 15px;
   }
 
-  .links {
-    padding-top: 15px;
+  .copyright {
+    font-size: 12px;
+    color: #ccc;
+    text-align: center;
   }
+  .text-scroll {
+    border: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+  }
+  .text-scroll p{
+    font-size: 12px;
+    text-align: center;
+    line-height: 30px;
+  }
+  .black {
+    background-color: #000;
+  }
+  .title{
+    line-height: 100px;
+    text-align: center;
+    color: #fff;
+  }
+  .animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+  .vux-indicator.custom-bottom {
+    bottom: 30px;
+  }
+  @-webkit-keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .fadeInUp {
+    animation-name: fadeInUp;
+  }
+  .swiper-demo-img img {
+    width: 100%;
+  }
+
 </style>

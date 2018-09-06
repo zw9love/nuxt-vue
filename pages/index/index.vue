@@ -11,5 +11,8 @@
 </script>
 
 <style scoped lang="stylus">
+ h3{
+   color: red;
+ }
 
 </style>
