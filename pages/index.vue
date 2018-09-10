@@ -5,6 +5,9 @@
       <nuxt-child/>
       <nuxt-link to="/child">去child子组件</nuxt-link>
       <nuxt-link to="/100100100">去_id子组件</nuxt-link>
+      <div>
+        <button @click="loginAccount">登录</button>
+      </div>
     </div>
     <div>
       <!--<app-logo/>-->
@@ -48,6 +51,7 @@
 </template>
 <script>
   import AppLogo from '~/components/AppLogo.vue'
+  import axios from 'axios'
   export default {
     head: {
       script: [
@@ -68,7 +72,7 @@
           {href: '/third', target: '_self', className: 'button--grey', name: 'third'},
           {href: '/four', target: '_self', className: 'button--grey', name: 'four'},
         ],
-        // msg: '',
+        msg: '',
       }
     },
     // 检验router的方法
@@ -79,15 +83,15 @@
     },
     // 新型ajax
     async asyncData({app}) {
-      let url = `/test.php`
-      let option = {
-        method: 'post',
-        url: url,
-        // headers: {'content-type': 'application/json', token: 'debug' }
-      }
-      let {data} = await app.$axios(option)
-      console.log(app.$axios)
-      return {msg: JSON.stringify(data)}
+      // let url = `/test.php`
+      // let option = {
+      //   method: 'post',
+      //   url: url,
+      //   // headers: {'content-type': 'application/json', token: 'debug' }
+      // }
+      // let {data} = await app.$axios(option)
+      // console.log(app.$axios)
+      // return {msg: JSON.stringify(data)}
       // let {data} = await app.$axios.get(url)
       // return {msg: JSON.stringify(data)}
     //   await app.$axios({
@@ -100,13 +104,13 @@
     //   })
     },
     created() {
-      console.log('created')
+      // console.log('created')
       // console.log(window)
       // console.log(process)
       // console.log('重新进入生命周期created钩子。')
     },
     mounted(){
-
+      // alert('测试项目的mounted钩子。')
     },
     methods: {
       remove() {
@@ -114,6 +118,10 @@
       },
       alert() {
         this.$vux.alert.show('This is a Alert example.')
+      },
+      loginAccount(){
+        this.$store.dispatch('login', {username: 'demo', password: 'demo', self: this})
+        // console.log(this.$store.state.authUser)
       }
     }
   }
